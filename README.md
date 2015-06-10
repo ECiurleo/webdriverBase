@@ -1,2 +1,2 @@
 # webdriverBase
-A base Selenium WebDriver suite writen in Java and TestNG
+A base Selenium WebDriver suite written in Java and TestNG
