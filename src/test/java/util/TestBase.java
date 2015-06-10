@@ -17,7 +17,6 @@ public class TestBase
     public String gridHubUrl;
     public Browser browser;
     public int waitSeconds;
-    public ExpectedData navigationURL;
 
     /** Before */
     @Parameters({"browser", "waitSeconds", "environment", "maxInstances", "maxSession" })
