@@ -18,10 +18,15 @@ You can also configure some of the behaviour of the tests from the custom_tests.
 The project follows the standard Maven structure; 
 
 all the tests should go in the src/test/java/tests folder. Tests should inherit from the TestBase class. 
+
 all the expected test data should go in the src/test/java/testdata folder.
+
 all the expected test data should go in the src/test/java/testdata folder.
+
 all the page elements should go in the src/test/java/testdata/pageelements folder.
+
 all base and util functions should go in the src/test/java/testdata/util folder.
+
 
 TestBase class provides the driver for each test and also it takes care of closing the driver when all the tests are executed in the suite within @Before and @After annotations.
 
