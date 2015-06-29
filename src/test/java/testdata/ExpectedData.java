@@ -4,7 +4,6 @@ public class ExpectedData {
 
     //Expected Data
     public String expectedpagetitle;
-    public String navigationURL;
     public String expectedFinalURL;
 
     public enum TestData
@@ -17,7 +16,6 @@ public class ExpectedData {
     {
         switch(testDataType) {
             case GoogleHome:
-                navigationURL = "http://www.google.co.uk/";
                 expectedpagetitle = "Google";
                 break;
 
@@ -27,7 +25,6 @@ public class ExpectedData {
                 break;
 
             default:
-                navigationURL = "";
                 expectedpagetitle = "";
                 expectedFinalURL = "accounts";
                 break;

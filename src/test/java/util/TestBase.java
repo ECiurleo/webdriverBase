@@ -1,30 +1,28 @@
 package util;
 
-
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-import testdata.ExpectedData;
 import org.openqa.selenium.WebDriver;
-
-import java.util.concurrent.TimeUnit;
 
 /** Base class for all the test classes */
 public class TestBase
 {
 
-	public WebDriver driver;
+    public WebDriver driver;
     public String gridHubUrl;
     public Browser browser;
     public int waitSeconds;
+    public EnvironmentDetailsConfig testURLs;
+
 
     /** Before */
     @Parameters({"browser", "waitSeconds", "environment", "maxInstances", "maxSession" })
     @BeforeSuite(alwaysRun = true)
     public void init(@Optional("firefox") String browserName, @Optional("30") int waitSeconds, @Optional("dev") String environment, @Optional("1") String maxInstances, @Optional("1") String maxSession)
     {
-    // Check for non-existent parameters and defaults set
+        // Check for non-existent parameters and defaults set
         System.err.println("Entering init");
+        testURLs = new EnvironmentDetailsConfig(EnvironmentDetailsConfig.NameOfEnvironment.valueOf(environment.toUpperCase()));
         gridHubUrl = PropertyLoader.loadProperty("grid2.hub");
         this.waitSeconds = waitSeconds;
         browser = new Browser();
@@ -36,7 +34,7 @@ public class TestBase
         System.err.println("Exiting init");
     }
 
-	//Quit any existing browser before creating a new one for the next method to avoid conflicts
+    //Quit any existing browser before creating a new one for the next method to avoid conflicts
     @BeforeMethod(alwaysRun = true)
     public void driverclear()
     {
@@ -60,6 +58,9 @@ public class TestBase
     ////////////////////////////////////////////////
 
 
+    public void gotoBaseURL() {
+        driver.get(testURLs.WEBAPP_URL);
+    }
 }
 
 

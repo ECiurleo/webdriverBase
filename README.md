@@ -8,7 +8,7 @@ You need to make sure that iexplore.exe, chrome.exe and firefox.exe are on your 
 You can also configure some of the behaviour of the tests from the custom_tests.xml file: -
 
     browser - one of firefox, iexplore, chrome - not implemented
-	environment - base URL generation - not implemented
+	environment - base URL generation
     waitSeconds - the number of seconds to use in the implicit wait and waitForElement methods.
     maxInstances - number of instances (to be used when running on build server)
 	maxSession - number of sessions (to be used when running on build server)
