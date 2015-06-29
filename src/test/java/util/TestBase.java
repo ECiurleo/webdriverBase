@@ -3,6 +3,7 @@ package util;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import org.openqa.selenium.WebDriver;
+import util.webdriver.WebDriverFactory;
 
 /** Base class for all the test classes */
 public class TestBase
@@ -13,6 +14,7 @@ public class TestBase
     public Browser browser;
     public int waitSeconds;
     public EnvironmentDetailsConfig testURLs;
+    public WebDriverFactory WebDriverFactory;
 
 
     /** Before */
@@ -31,19 +33,10 @@ public class TestBase
         browser.setPlatform(PropertyLoader.loadProperty("browser.platform"));
         browser.setMaxInstances(PropertyLoader.loadProperty("browser.maxInstances"));
         browser.setMaxSession(PropertyLoader.loadProperty("browser.maxSession"));
+        driver = WebDriverFactory.getInstance(gridHubUrl, browser);
         System.err.println("Exiting init");
     }
 
-    //Quit any existing browser before creating a new one for the next method to avoid conflicts
-    @BeforeMethod(alwaysRun = true)
-    public void driverclear()
-    {
-        if (driver != null)
-        {
-            driver.quit();
-        }
-        driver = new FirefoxDriver();
-    }
 
     //Make sure everything is closed at the end of the tests.
     @AfterMethod(alwaysRun = true)

@@ -171,14 +171,14 @@ public class WebDriverFactory {
      */
     private static void setChromeDriver() {
         String os = System.getProperty("os.name").toLowerCase().substring(0, 3);
-        String chromeBinary = os.equals("win") ? "src/main/resources/drivers/chrome/chromedriver.exe" : "/usr/local/bin/chromedriver";
+        String chromeBinary = os.equals("win") ? "src/test/resources/drivers/chrome/chromedriver.exe" : "/usr/local/bin/chromedriver";
         System.setProperty("webdriver.chrome.driver", chromeBinary);
         System.setProperty("DISPLAY", ":19");
     }
 
     private static void setInternetExplorerDriver() {
         String os = System.getProperty("os.arch").toLowerCase(); //.substring(0, 3);
-        String ieBinary = "src/main/resources/drivers/ie/" + (os.contains("64") ? "x64" : "x86") + "/IEDriverServer.exe";
+        String ieBinary = "src/test/resources/drivers/ie/" + (os.contains("64") ? "x64" : "x86") + "/IEDriverServer.exe";
         System.setProperty("webdriver.ie.driver", ieBinary);
     }
 
