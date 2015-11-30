@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="custom_tests" verbose="5" data-provider-thread-count="1" parallel="classes" thread-count="3">
     <!-- Comment these to run from Build server (must be set as build parameters) -->
-    <parameter name="browser" value="chrome" />
+    <parameter name="browser" value="firefox" />
     <parameter name="environment" value="dev" />
     <parameter name="testMode" value="false" />
     <parameter name="waitSeconds" value="20" />

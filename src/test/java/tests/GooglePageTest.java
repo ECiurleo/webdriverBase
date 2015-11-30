@@ -19,7 +19,9 @@ public class GooglePageTest extends TestBase {
         gotoBaseURL();
         assertTrue(driver.findElement(GooglePageElements.signInBtn).isDisplayed(), "Sign in button is not present on the page when expected");
         driver.findElement(GooglePageElements.signInBtn).click();
-        assertTrue(driver.getTitle().contains(googlelogin.expectedpagetitle),"The page title for the page returned  is " + driver.getTitle() + " when " + googlelogin.expectedpagetitle + "was expected");
+        assertTrue(driver.getTitle().contains(googlelogin.expectedpagetitle),"The page title for the page returned is " + driver.getTitle() + " when " + googlelogin.expectedpagetitle + " was expected");
 	}
+
+
 
 }
