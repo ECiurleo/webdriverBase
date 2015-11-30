@@ -17,10 +17,10 @@ public class EnvironmentDetailsConfig {
     {
         switch (envName) {
             case DEV:
-                WEBAPP_URL = "http://www.google.co.uk/";
+                WEBAPP_URL = "http://www.lowcostholidays.com/";
                 break;
             case LIVE:
-                WEBAPP_URL = "http://www.bing.co.uk/";
+                WEBAPP_URL = "";
                 break;
             default:
                 WEBAPP_URL = "";

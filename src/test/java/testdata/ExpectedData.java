@@ -4,29 +4,26 @@ public class ExpectedData {
 
     //Expected Data
     public String expectedpagetitle;
-    public String expectedFinalURL;
 
     public enum TestData
     {
-        GoogleHome,GoogleLogin;
+        LowCostHolidaysHome,LowCostHolidaysLogin;
     }
 
     @SuppressWarnings("incomplete-switch")
     public ExpectedData (TestData testDataType)
     {
         switch(testDataType) {
-            case GoogleHome:
-                expectedpagetitle = "Google";
+            case LowCostHolidaysHome:
+                expectedpagetitle = "lowcostholidays | Search for cheap holidays, all inclusive holiday deals and city breaks";
                 break;
 
-            case GoogleLogin:
-                expectedpagetitle = "Sign in";
-                expectedFinalURL = "accounts";
+            case LowCostHolidaysLogin:
+                expectedpagetitle = "lowcostholidays | Search for cheap holidays, all inclusive holiday deals and city breaks";
                 break;
 
             default:
                 expectedpagetitle = "";
-                expectedFinalURL = "accounts";
                 break;
         }
     }

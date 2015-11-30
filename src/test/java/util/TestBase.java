@@ -39,7 +39,7 @@ public class TestBase
 
 
     //Make sure everything is closed at the end of the tests.
-    @AfterMethod(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown()
     {
         if (driver != null)
