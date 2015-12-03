@@ -12,12 +12,13 @@ You can also configure some of the behaviour of the tests from the custom_tests.
 - maxSession - number of sessions (to be used when running on build server)
 
 ##Project Structure
-The project follows the standard Maven structure;
-- all the tests should go in the src/test/java/tests folder. Tests should inherit from the TestBase class.
+- all the tests should go in the src/test/java/tests folder. 
+- all tests should inherit from the TestBase class.
 - all the expected test data should go in the src/test/java/testdata folder.
 - all the page elements should go in the src/test/java/pageelements folder.
 - all base and util functions should go in the src/test/java/util folder.
-- Additional browser support can be added in src/test/java/util/webdriver/WebDriverFactory
+- all test cases have appropriate error messages.
+- additional browser support can be added in src/test/java/util/webdriver/WebDriverFactory
 
 TestBase class provides the driver for each test and also it takes care of closing the driver when all the tests are executed in the suite within @Before and @After annotations.
 
