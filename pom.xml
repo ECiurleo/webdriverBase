@@ -75,13 +75,6 @@
             <artifactId>itextpdf</artifactId>
             <version>5.1.2</version>
         </dependency>
-
-        <!-- <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.2.0</version>
-        </dependency> -->
-
     </dependencies>
 
     <build>
@@ -105,7 +98,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.15</version>
                 <configuration>
-
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${project.basedir}/src/test/resources/${testngFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                     <properties>
                         <property>
                             <name>usedefaultlisteners</name>
@@ -123,9 +118,9 @@
                             <name>environment</name>
                             <value>dev</value>
                         </property>
-
+                        <classes>${classes}</classes>
+                        <groups>${groups}</groups>
                     </properties>
-
                 </configuration>
             </plugin>
             <plugin>
@@ -133,9 +128,19 @@
                 <version>2.3.2</version>
                 <configuration>
                     <fork>true</fork>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.3.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>2.7.1</version>
             </plugin>
         </plugins>
     </build>
