@@ -1,6 +1,7 @@
 package tests;
 
 
+import org.testng.asserts.SoftAssert;
 import pageelements.GooglePageElements;
 import testdata.ExpectedData;
 import util.TestBase;
@@ -16,11 +17,13 @@ public class GooglePageTest extends TestBase {
 
     @Test(description = "Clicking on Google Sign in button navigates to correct page")
 	public void clickGoogleSignInbtn() {
+        SoftAssert sa = new SoftAssert();
+
         gotoBaseURL();
-        assertTrue(driver.findElement(GooglePageElements.signInBtn).isDisplayed(), "Sign in button is not present on the page when expected");
         driver.findElement(GooglePageElements.signInBtn).click();
-        assertTrue(driver.getTitle().contains(googlelogin.expectedpagetitle),"The page title for the page returned is " + driver.getTitle() + " when " + googlelogin.expectedpagetitle + " was expected");
-	}
+        sa.assertTrue(driver.getTitle().contains(googlelogin.expectedpagetitle),"The page title for the page returned is " + driver.getTitle() + " when " + googlelogin.expectedpagetitle + " was expected");
+        sa.assertAll();
+    }
 
 
 
